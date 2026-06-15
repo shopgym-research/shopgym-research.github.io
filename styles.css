@@ -113,14 +113,14 @@ sup {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
-  min-height: 56px;
-  padding: 12px 28px;
+  gap: 8px;
+  min-height: 42px;
+  padding: 8px 16px;
   border: 1px solid #333333;
   border-radius: 999px;
   background: #333333;
   color: #ffffff;
-  font-size: clamp(1.12rem, 1.8vw, 1.35rem);
+  font-size: 0.98rem;
   font-weight: 400;
   line-height: 1;
   text-decoration: none;
@@ -133,9 +133,9 @@ sup {
 
 .paper-links a:hover,
 .paper-links a:focus-visible {
-  background: #242424;
-  border-color: #242424;
-  color: #ffffff;
+  background: var(--surface);
+  border-color: var(--accent-warm);
+  color: var(--heading);
   transform: translateY(-1px);
 }
 
@@ -148,7 +148,7 @@ sup {
   display: inline-block;
   width: 1em;
   flex: 0 0 1em;
-  font-size: 1.28em;
+  font-size: 1.16em;
   line-height: 1;
   text-align: center;
 }
@@ -180,6 +180,6 @@ sup {
   }
 
   .paper-links a {
-    min-width: 132px;
+    min-width: 112px;
   }
 }
