@@ -1,0 +1,125 @@
+:root {
+  color-scheme: light;
+  --ink: #1f2933;
+  --heading: #17253a;
+  --muted: #657385;
+  --rule: #e3d7c6;
+  --background: #fbf6ed;
+  --surface: #fffdf8;
+  --accent-soft: #f4eadc;
+  --accent-warm: #c58f5f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--ink);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+}
+
+main {
+  width: min(1120px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 56px 0;
+}
+
+.paper-header {
+  position: relative;
+  padding: 42px 0 30px;
+  text-align: center;
+}
+
+.paper-header::after {
+  content: "";
+  display: block;
+  width: min(760px, 100%);
+  height: 1px;
+  margin: 32px auto 0;
+  background: linear-gradient(90deg, rgba(216, 225, 220, 0), var(--rule), rgba(216, 225, 220, 0));
+}
+
+h1 {
+  margin: 0;
+  max-width: 1040px;
+  margin-inline: auto;
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--heading);
+  font-size: clamp(1.45rem, 3.4vw, 2.55rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: 0;
+  text-wrap: balance;
+}
+
+.authors {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 22px;
+  margin: 28px auto 0;
+  padding: 0;
+  list-style: none;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.08rem, 1.7vw, 1.45rem);
+  line-height: 1.18;
+}
+
+.authors li {
+  white-space: nowrap;
+}
+
+sup {
+  color: var(--muted);
+  font-size: 0.58em;
+  line-height: 0;
+}
+
+.affiliations {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px 14px;
+  margin: 18px auto 0;
+  color: var(--ink);
+  font-size: clamp(0.95rem, 1.5vw, 1.12rem);
+  line-height: 1.25;
+}
+
+.affiliations span {
+  padding: 7px 12px;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: inset 0 0 0 999px rgba(244, 234, 220, 0.68);
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  main {
+    width: min(100% - 28px, 920px);
+    padding: 26px 0;
+  }
+
+  .paper-header {
+    padding: 28px 0 20px;
+  }
+
+  .authors {
+    gap: 8px 16px;
+  }
+
+  .authors li {
+    white-space: normal;
+  }
+
+  .affiliations span {
+    white-space: normal;
+  }
+}
