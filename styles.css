@@ -101,6 +101,58 @@ sup {
   white-space: nowrap;
 }
 
+.paper-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin: 22px auto 0;
+}
+
+.paper-links a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-height: 56px;
+  padding: 12px 28px;
+  border: 1px solid #333333;
+  border-radius: 999px;
+  background: #333333;
+  color: #ffffff;
+  font-size: clamp(1.12rem, 1.8vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1;
+  text-decoration: none;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+}
+
+.paper-links a:hover,
+.paper-links a:focus-visible {
+  background: #242424;
+  border-color: #242424;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+.paper-links a:focus-visible {
+  outline: 3px solid rgba(197, 143, 95, 0.35);
+  outline-offset: 3px;
+}
+
+.link-icon {
+  display: inline-block;
+  width: 1em;
+  flex: 0 0 1em;
+  font-size: 1.28em;
+  line-height: 1;
+  text-align: center;
+}
+
 @media (max-width: 560px) {
   main {
     width: min(100% - 28px, 920px);
@@ -121,5 +173,13 @@ sup {
 
   .affiliations span {
     white-space: normal;
+  }
+
+  .paper-links {
+    gap: 10px;
+  }
+
+  .paper-links a {
+    min-width: 132px;
   }
 }
