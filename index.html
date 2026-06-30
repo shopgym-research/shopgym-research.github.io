@@ -3,48 +3,541 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ShopGym: An Integrated Framework for Realistic Simulation and Scalable Benchmarking of E-Commerce Web Agents</title>
+    <title>ShopGym: Realistic Simulation and Scalable Benchmarking of E-Commerce Web Agents</title>
+    <meta
+      name="description"
+      content="ShopGym is an integrated framework for realistic simulation and scalable benchmarking of e-commerce web agents. ShopArena turns live storefronts into self-contained sandbox shops; ShopGuru generates grounded benchmark tasks across seven skill categories."
+    />
+    <meta property="og:title" content="ShopGym: Realistic Simulation and Scalable Benchmarking of E-Commerce Web Agents" />
+    <meta
+      property="og:description"
+      content="An integrated framework that converts live storefronts into self-contained, resettable sandbox shops and generates grounded shopping-agent benchmarks."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="assets/architecture.png" />
     <link
       rel="icon"
-      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="12" fill="%2317202a"/><text x="32" y="39" text-anchor="middle" font-family="Arial" font-size="20" font-weight="700" fill="%23fbfcfe">SG</text></svg>'
+      href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%230f7b6c"/><text x="32" y="40" text-anchor="middle" font-family="Arial" font-size="28" font-weight="700" fill="%23ffffff">S</text></svg>'
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
     />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.9.4/css/academicons.min.css" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
+    <!-- ============================ NAV ============================ -->
+    <header class="nav" id="top">
+      <div class="nav-inner">
+        <a class="brand" href="#top" aria-label="ShopGym home">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span class="brand-name">ShopGym</span>
+        </a>
+        <nav class="nav-links" aria-label="Section navigation">
+          <a href="#overview">Overview</a>
+          <a href="#pipeline">Pipeline</a>
+          <a href="#skills">Skills</a>
+          <a href="#shops">Live Shops</a>
+          <a href="#results">Results</a>
+          <a href="#code">Code</a>
+          <a href="#cite">Cite</a>
+        </nav>
+        <a class="nav-cta" href="https://arxiv.org/abs/2605.16116" target="_blank" rel="noopener noreferrer">
+          <i class="ai ai-arxiv" aria-hidden="true"></i><span>Paper</span>
+        </a>
+        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+          <i class="fa-solid fa-bars" aria-hidden="true"></i>
+        </button>
+      </div>
+    </header>
+
     <main>
-      <section class="paper-header" aria-labelledby="paper-title">
-        <h1 id="paper-title">ShopGym: An Integrated Framework for Realistic Simulation and Scalable Benchmarking of E-Commerce Web Agents</h1>
+      <!-- ============================ HERO ============================ -->
+      <section class="hero">
+        <p class="eyebrow">Simulation &amp; Benchmarking for E-Commerce Web Agents</p>
+        <h1>
+          ShopGym: An Integrated Framework for Realistic Simulation and Scalable
+          Benchmarking of E-Commerce Web Agents
+        </h1>
 
         <ol class="authors" aria-label="Authors">
-          <li>Chinmay Savadikar<sup>&dagger;&Dagger;*</sup></li>
-          <li>Mingyu Zhao<sup>&dagger;*</sup></li>
-          <li>Yuanzheng Zhu<sup>&dagger;*</sup></li>
-          <li>Han Li<sup>&dagger;</sup></li>
-          <li>Shuang Xie<sup>&dagger;</sup></li>
-          <li>Alberto Castelo<sup>&dagger;</sup></li>
-          <li>Tianfu Wu<sup>&Dagger;</sup></li>
-          <li>Lingyun Wang<sup>&dagger;</sup></li>
+          <li>Chinmay Savadikar<sup>1,2,†,*</sup></li>
+          <li>Mingyu Zhao<sup>2,†</sup></li>
+          <li>Yuanzheng Zhu<sup>2,†</sup></li>
+          <li>Han Li<sup>2</sup></li>
+          <li>Shuang Xie<sup>2</sup></li>
+          <li>Alberto Castelo<sup>2</sup></li>
+          <li>Tianfu Wu<sup>1</sup></li>
+          <li>Lingyun Wang<sup>2,‡</sup></li>
         </ol>
 
         <div class="affiliations" aria-label="Affiliations">
-          <span><sup>&dagger;</sup>Shopify</span>
-          <span><sup>&Dagger;</sup>North Carolina State University</span>
-          <span><sup>*</sup>Equal Contribution</span>
+          <span><sup>1</sup>North Carolina State University</span>
+          <span><sup>2</sup>Shopify</span>
+        </div>
+        <p class="author-notes">
+          <sup>†</sup>Equal contribution &nbsp;·&nbsp; <sup>*</sup>Work done during internship at Shopify
+          &nbsp;·&nbsp; <sup>‡</sup>Corresponding author
+        </p>
+
+        <div class="hero-links" aria-label="Paper and code links">
+          <a class="btn btn-primary" href="https://arxiv.org/abs/2605.16116" target="_blank" rel="noopener noreferrer">
+            <i class="ai ai-arxiv" aria-hidden="true"></i><span>arXiv</span>
+          </a>
+          <a class="btn" href="https://arxiv.org/pdf/2605.16116" target="_blank" rel="noopener noreferrer">
+            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i><span>PDF</span>
+          </a>
+          <a class="btn" href="https://github.com/agentic-foundation-modeling-research/shop-gym" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github" aria-hidden="true"></i><span>Code</span>
+          </a>
+          <a class="btn" href="#shops">
+            <i class="fa-solid fa-store" aria-hidden="true"></i><span>Live Shops</span>
+          </a>
+          <a class="btn" href="#cite">
+            <i class="fa-solid fa-quote-right" aria-hidden="true"></i><span>BibTeX</span>
+          </a>
         </div>
 
-        <div class="paper-links" aria-label="Paper and code links">
-          <a href="https://arxiv.org/abs/2605.16116" target="_blank" rel="noopener noreferrer" aria-label="Read the paper on arXiv">
-            <i class="ai ai-arxiv link-icon" aria-hidden="true"></i>
-            <span>ArXiv</span>
-          </a>
-          <a href="https://github.com/agentic-foundation-modeling-research/shop-gym" target="_blank" rel="noopener noreferrer" aria-label="View the code on GitHub">
-            <i class="fa-brands fa-github link-icon" aria-hidden="true"></i>
-            <span>Code</span>
+        <p class="tldr">
+          <strong>TL;DR</strong> &mdash; ShopGym converts live storefronts into self-contained, resettable
+          <em>sandbox shops</em> and generates grounded shopping-agent benchmarks &mdash; closing the realism⇄control
+          gap with environments that are realistic, controllable, inspectable, and reproducible.
+        </p>
+
+        <figure class="hero-figure">
+          <img src="assets/architecture.png" alt="ShopGym pipeline: ShopArena generates sandbox shops from live seed storefronts; ShopGuru generates grounded short- and long-horizon tasks." loading="eager" />
+          <figcaption>
+            ShopGym has two components. <strong>ShopArena</strong> turns one or more live seed storefronts into
+            self-contained sandbox shops; <strong>ShopGuru</strong> then synthesizes grounded short- and
+            long-horizon shopping tasks over each shop.
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ============================ STATS ============================ -->
+      <section class="stats" aria-label="Key figures">
+        <div class="stat"><span class="stat-num">224</span><span class="stat-label">Grounded tasks</span></div>
+        <div class="stat"><span class="stat-num">6</span><span class="stat-label">Sandbox shops</span></div>
+        <div class="stat"><span class="stat-num">7</span><span class="stat-label">Skill categories</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Retail domains</span></div>
+        <div class="stat"><span class="stat-num">2</span><span class="stat-label">Eval harnesses</span></div>
+        <div class="stat"><span class="stat-num">3</span><span class="stat-label">Frontier models</span></div>
+      </section>
+
+      <!-- ============================ OVERVIEW ============================ -->
+      <section id="overview" class="section">
+        <p class="tag">The Problem</p>
+        <h2>Realism or control &mdash; today you have to pick one</h2>
+        <div class="prose">
+          <p>
+            Developing and evaluating e-commerce web agents requires environments that preserve meaningful task
+            structure while enabling controllable, reproducible, and scalable comparison. Existing methodologies
+            force a tradeoff: <strong>live storefronts</strong> provide realism but are non-stationary, hard to inspect,
+            and irreproducible, while <strong>hand-built sandboxes</strong> provide control but cover only a narrow
+            range of layouts, catalogs, policies, and interaction patterns.
+          </p>
+          <p>
+            We argue the core bottleneck is <em>methodological</em>: the field lacks a scalable way to construct
+            evaluation settings that are simultaneously realistic, diverse, controllable, inspectable, and
+            reproducible. <strong>ShopGym</strong> bridges this gap. Its simulation layer, <strong>ShopArena</strong>,
+            converts live seed storefronts into self-contained sandbox shops through anonymized shop specifications
+            and a staged, validated generation process. On top of these storefronts, <strong>ShopGuru</strong>
+            synthesizes benchmark tasks across seven skill categories, grounding each task in the shop's catalog,
+            navigation structure, policies, and interaction affordances.
+          </p>
+          <p>
+            We validate the framework with graph-based structural analysis and agent-based behavioral evaluation
+            over <strong>224 tasks across six sandbox shops</strong> &mdash; three built from synthetic data and three
+            from real data. The synthetic shops preserve key structural properties of live storefronts, and agent
+            performance on synthetic shops <strong>positively correlates</strong> with performance on the live
+            storefronts they mirror.
+          </p>
+        </div>
+
+        <div class="cards three">
+          <div class="card">
+            <i class="fa-solid fa-globe card-icon" aria-hidden="true"></i>
+            <h3>Grounded in real shops</h3>
+            <p>Generation is calibrated on observed live storefronts &mdash; not on manuals or ungrounded LLM design choices.</p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-arrows-rotate card-icon" aria-hidden="true"></i>
+            <h3>Stable &amp; resettable</h3>
+            <p>Each shop is self-contained and deterministic, so training and evaluation runs are reproducible.</p>
+          </div>
+          <div class="card">
+            <i class="fa-solid fa-magnifying-glass card-icon" aria-hidden="true"></i>
+            <h3>Inspectable by design</h3>
+            <p>A human-readable specification is the control surface &mdash; edit a shop without re-exploring the source.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ PIPELINE ============================ -->
+      <section id="pipeline" class="section section-alt">
+        <p class="tag">The Pipeline</p>
+        <h2>How ShopGym works</h2>
+        <p class="section-lead">
+          Two complementary frameworks in one synergistic workflow: <strong>ShopArena</strong> builds the
+          environment, and <strong>ShopGuru</strong> builds the benchmark. Both are organized as small sets of
+          coding agents communicating through the file system, with execution&ndash;verification loops that keep
+          long-horizon generation reliable.
+        </p>
+
+        <div class="pipeline-block">
+          <div class="pipeline-head">
+            <span class="step-num">01</span>
+            <div>
+              <h3>ShopArena · Explore</h3>
+              <p class="pipeline-sub">Live storefront &rarr; anonymized specification</p>
+            </div>
+          </div>
+          <p class="prose">
+            A planner agent decomposes exploration into focused subtasks; fresh specification agents browse the seed
+            storefront with Playwright and write an <strong>anonymized</strong> design manual, structured attribute
+            list, and catalog statistics. A consolidation step merges fragments &mdash; and can compose multiple seed
+            shops into a single specification that spans diversity no individual storefront would cover.
+          </p>
+          <figure class="diagram">
+            <img src="assets/exploration.png" alt="Exploration phase: static prefetch and a planner agent produce an editable plan; specification agents write anonymized fragments that are merged into one shop specification." loading="lazy" />
+            <figcaption>Exploration: prefetch &rarr; plan &rarr; per-subtask specification agents &rarr; merged shop specification.</figcaption>
+          </figure>
+        </div>
+
+        <div class="pipeline-block">
+          <div class="pipeline-head">
+            <span class="step-num">02</span>
+            <div>
+              <h3>ShopArena · Generate</h3>
+              <p class="pipeline-sub">Specification &rarr; runnable sandbox shop</p>
+            </div>
+          </div>
+          <p class="prose">
+            Generation reads only the specification, so it is anonymous by construction. A synthetic catalog is
+            generated collection-by-collection, then the storefront source code is synthesized in a fixed sequence of
+            feature-scoped steps (shell, collections, product pages, cart, search, policies). Each step runs an
+            <strong>execution&ndash;verification loop</strong> (in the spirit of the Ralph technique): a fresh agent
+            edits the code, then rule-based and multimodal verifiers produce natural-language feedback for the next
+            iteration &mdash; sidestepping the context-growth failures of single long-running agents.
+          </p>
+          <figure class="diagram">
+            <img src="assets/generation.png" alt="Generation phase: data generation plus a staged execution-verification loop with an execution agent and verifiers over N iterations." loading="lazy" />
+            <figcaption>Generation: catalog synthesis + staged execution&ndash;verification loops (static and active validation).</figcaption>
+          </figure>
+        </div>
+
+        <div class="pipeline-block">
+          <div class="pipeline-head">
+            <span class="step-num">03</span>
+            <div>
+              <h3>ShopGuru · Grounded task generation</h3>
+              <p class="pipeline-sub">Sandbox shop &rarr; verified benchmark tasks</p>
+            </div>
+          </div>
+          <p class="prose">
+            ShopGuru consumes the shop's collections, products, pages, and statistics and emits tasks that are valid
+            against the environment they run in. Deterministic generators produce short-horizon primitive tasks; an
+            LLM-authored generator produces long-horizon shopping journeys, reconciled against the shop via a
+            validator-driven <strong>polish loop</strong>. Every emitted task passes a dependency-free validator
+            (seven core rules) before shipping.
+          </p>
+          <figure class="diagram">
+            <img src="assets/shopguru-pipeline.png" alt="ShopGuru pipeline: shop data feeds an executor-verifier loop that emits short-horizon and long-horizon tasks." loading="lazy" />
+            <figcaption>ShopGuru: deterministic + LLM-authored generators, gated by rule-based verifiers.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================ SKILLS ============================ -->
+      <section id="skills" class="section">
+        <p class="tag">Skill Catalog</p>
+        <h2>Seven skills, from primitives to journeys</h2>
+        <p class="section-lead">
+          ShopGuru organizes tasks into three short-horizon primitive groups and one long-horizon group. The
+          primitives are the building blocks the long-horizon journeys re-combine.
+        </p>
+        <div class="cards skills">
+          <div class="card skill">
+            <span class="skill-kind short">Short-horizon</span>
+            <h3>Product Discovery</h3>
+            <p>Find products by exact title or by a semantically similar alternative.</p>
+            <ul class="chips">
+              <li>search-exact</li>
+              <li>search-substitute</li>
+            </ul>
+          </div>
+          <div class="card skill">
+            <span class="skill-kind short">Short-horizon</span>
+            <h3>Filter &amp; Selection</h3>
+            <p>Navigate to a collection and add to cart, optionally constrained by a realistic facet.</p>
+            <ul class="chips">
+              <li>browse</li>
+              <li>filter</li>
+            </ul>
+          </div>
+          <div class="card skill">
+            <span class="skill-kind short">Short-horizon</span>
+            <h3>Information Seeking</h3>
+            <p>Locate store-policy pages such as shipping, returns, and refunds.</p>
+            <ul class="chips">
+              <li>shipping</li>
+              <li>returns</li>
+            </ul>
+          </div>
+          <div class="card skill long">
+            <span class="skill-kind long">Long-horizon</span>
+            <h3>End-to-End Journeys</h3>
+            <p>LLM-authored multi-step intents that mimic real human shopper traces: filter &rarr; sort &rarr; inspect &rarr; detour to a policy page &rarr; add to cart &rarr; edit quantity.</p>
+            <ul class="chips">
+              <li>e2e</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============================ LIVE SHOPS ============================ -->
+      <section id="shops" class="section section-alt">
+        <p class="tag">Explore</p>
+        <h2>Live sandbox shops</h2>
+        <p class="section-lead">
+          Three fully synthetic storefronts generated by ShopArena across distinct retail domains. Press play to watch
+          an agent navigate each self-contained sandbox shop. (Login is disabled and checkout is mocked: these are
+          research environments, not real stores.)
+        </p>
+        <!-- Each card plays a YouTube demo on click. Paste the 11-char video ID into data-youtube-id="…". -->
+        <div class="cards three shops">
+          <div class="card shop video">
+            <button class="video-facade" type="button" data-youtube-id="" aria-label="Play agent demo of the Mock Clothing sandbox shop">
+              <img src="assets/shop-clothing.png" alt="Mock Clothing sandbox storefront homepage" loading="lazy" />
+              <span class="play-btn" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+            </button>
+            <div class="shop-meta">
+              <h3>Mock Clothing</h3>
+              <p>Apparel &amp; activewear <i class="fa-solid fa-circle-play" aria-hidden="true"></i></p>
+            </div>
+          </div>
+          <div class="card shop video">
+            <button class="video-facade" type="button" data-youtube-id="" aria-label="Play agent demo of the Mock Hardware sandbox shop">
+              <img src="assets/shop-hardware.png" alt="Mock Hardware sandbox storefront homepage" loading="lazy" />
+              <span class="play-btn" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+            </button>
+            <div class="shop-meta">
+              <h3>Mock Hardware</h3>
+              <p>POS &amp; retail hardware <i class="fa-solid fa-circle-play" aria-hidden="true"></i></p>
+            </div>
+          </div>
+          <div class="card shop video">
+            <button class="video-facade" type="button" data-youtube-id="" aria-label="Play agent demo of the Mock Cookware sandbox shop">
+              <img src="assets/shop-cookware.png" alt="Mock Cookware sandbox storefront homepage" loading="lazy" />
+              <span class="play-btn" aria-hidden="true"><i class="fa-solid fa-play"></i></span>
+            </button>
+            <div class="shop-meta">
+              <h3>Mock Cookware</h3>
+              <p>Cookware &amp; kitchen <i class="fa-solid fa-circle-play" aria-hidden="true"></i></p>
+            </div>
+          </div>
+        </div>
+
+        <h3 class="subhead">Functional, not just visual</h3>
+        <p class="section-lead">
+          Generated shops contain real e-commerce surfaces &mdash; faceted filtering, promotional popups, search
+          suggestions, and product-level purchasing controls.
+        </p>
+        <div class="cards three details">
+          <figure class="shot">
+            <img src="assets/detail-filters.png" alt="Collection page with a faceted filter panel for price and product type." loading="lazy" />
+            <figcaption>Collection page with faceted filters</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/detail-promo.png" alt="Homepage with a promotional welcome-offer popup." loading="lazy" />
+            <figcaption>Homepage with promotion popup</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/detail-product.png" alt="Product detail page with search suggestions and add-to-cart controls." loading="lazy" />
+            <figcaption>Product detail with search suggestions</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================ RESULTS ============================ -->
+      <section id="results" class="section">
+        <p class="tag">Findings</p>
+        <h2>Sandbox shops keep the signal of live shops</h2>
+
+        <div class="findings">
+          <div class="finding">
+            <i class="fa-solid fa-scale-balanced finding-icon" aria-hidden="true"></i>
+            <h3>Behavioral alignment</h3>
+            <p>Across both harnesses, every model scores similarly on a real storefront and its ShopArena twin &mdash; the sandbox preserves the live-web evaluation signal.</p>
+          </div>
+          <div class="finding">
+            <i class="fa-solid fa-mountain finding-icon" aria-hidden="true"></i>
+            <h3>Genuinely hard tasks</h3>
+            <p>On synthetic shops, long-horizon success ranges from <strong>47.9%</strong> (GPT-5-mini) to <strong>62.5%</strong> (GPT-5) &mdash; far from saturated.</p>
+          </div>
+          <div class="finding">
+            <i class="fa-solid fa-diagram-project finding-icon" aria-hidden="true"></i>
+            <h3>Structural fidelity</h3>
+            <p>Synthetic shops match real storefronts in distinct-state coverage, accessibility-tree depth, and interaction affordances.</p>
+          </div>
+        </div>
+
+        <figure class="result-figure">
+          <img src="assets/results-twins.png" alt="Bar charts: success rates on real storefronts versus ShopArena twins for GPT-5-mini, Gemini 3 Flash, and GPT-5 on short- and long-horizon tasks, under BrowserGym and internal harnesses. Real and synthetic bars are close throughout." loading="lazy" />
+          <figcaption>
+            <strong>Behavioral validation.</strong> Success rates on real storefronts vs. their ShopArena twins
+            (Real vs. Synthetic) across two harnesses. Performance tracks closely &mdash; and improves with stronger
+            models on the harder tasks.
+          </figcaption>
+        </figure>
+
+        <figure class="result-figure">
+          <img src="assets/results-sandbox.png" alt="Bar charts: success rates on the fully synthetic sandbox shops. Short-horizon: 76.1/77.2/86.1 percent; long-horizon BrowserGym: 47.9/59.0/62.5 percent." loading="lazy" />
+          <figcaption>
+            <strong>Task difficulty.</strong> Success rates on the fully synthetic sandbox shops. Short-horizon tasks
+            reach 76&ndash;86%, while long-horizon journeys stay at 48&ndash;63% &mdash; meaningfully hard tasks for
+            training and evaluating next-generation e-commerce agents.
+          </figcaption>
+        </figure>
+
+        <h3 class="subhead">Structural validation</h3>
+        <p class="section-lead">
+          We treat each shop as a directed state-transition graph (left) and compare aggregate complexity against
+          real storefronts (right). Synthetic shops match real ones in node count and interaction affordances; they
+          show fewer edges, largely because sandboxes intentionally omit external links and marketing pages.
+        </p>
+        <div class="struct-grid">
+          <figure class="struct dark">
+            <img src="assets/transition-graph.png" alt="A directed state-transition graph of a sandbox shop: pages as nodes, actions such as click and fill as edges." loading="lazy" />
+            <figcaption>Example state-transition graph of a sandbox shop.</figcaption>
+          </figure>
+          <figure class="struct">
+            <img src="assets/structural-stats.png" alt="Bar charts comparing real and synthetic shops on node/edge/out-degree counts and AXTree depth, fill, click, and choice counts." loading="lazy" />
+            <figcaption>State-transition and observation/interaction statistics (real vs. synthetic).</figcaption>
+          </figure>
+        </div>
+
+        <div class="eval-note">
+          <p>
+            <strong>Setup.</strong> Three frontier models &mdash; GPT-5-mini, Gemini 3 Flash, and GPT-5 &mdash; evaluated
+            under two harnesses: a <strong>BrowserGym</strong> implementation over accessibility trees and an
+            <strong>internal</strong> multimodal harness (page projection + screenshots). GPT-5 serves as the
+            LLM-as-judge, with a hard rule that any rollout not ended deliberately by the agent is scored as a failure.
+          </p>
+        </div>
+      </section>
+
+      <!-- ============================ CODE ============================ -->
+      <section id="code" class="section section-alt">
+        <p class="tag">Open Source</p>
+        <h2>From a live URL to an agent benchmark in five commands</h2>
+        <p class="section-lead">
+          ShopGym ships as a mono-repo of four packages. A full ShopArena pipeline is
+          explore &rarr; generate &rarr; serve, then ShopGuru builds and evaluates a grounded benchmark on top.
+        </p>
+
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="codeblock-title"><i class="fa-solid fa-terminal" aria-hidden="true"></i> quickstart.sh</span>
+            <button class="copy-btn" data-copy-target="quickstart">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span>
+            </button>
+          </div>
+          <pre id="quickstart"><code># 1 · Explore a live storefront → anonymized shop manual
+uv run shop-explore https://example-shop.com
+
+# 2 · Generate a self-contained SandboxShop from the manual
+uv run shop-gen outputs/shop_manuals/&lt;domain&gt;/&lt;run_id&gt; --name mock_shop
+
+# 3 · Serve the shop locally for agents to interact with
+pnpm shop:host start mock_shop 4000
+
+# 4 · Generate a grounded benchmark for the shop
+uv run shop-guru build --shop mock_shop
+
+# 5 · Evaluate an agent against the shop
+uv run shop-guru eval --shop mock_shop</code></pre>
+        </div>
+
+        <div class="cards four packages">
+          <div class="card pkg">
+            <span class="pkg-lang">Python</span>
+            <h3>shop_arena</h3>
+            <p>Environment factory: generates deterministic, self-contained sandbox shops from any live storefront.</p>
+          </div>
+          <div class="card pkg">
+            <span class="pkg-lang">Python</span>
+            <h3>shop_guru</h3>
+            <p>Dataset pipeline: synthesizes grounded evaluation tasks across the seven skill categories.</p>
+          </div>
+          <div class="card pkg">
+            <span class="pkg-lang">TypeScript</span>
+            <h3>shop_backend</h3>
+            <p>Local GraphQL API server that hosts SandboxShop catalog and navigation data.</p>
+          </div>
+          <div class="card pkg">
+            <span class="pkg-lang">Python</span>
+            <h3>harness</h3>
+            <p>Runtime-agnostic plan-then-loop engine orchestrating agents through build and eval loops.</p>
+          </div>
+        </div>
+
+        <div class="code-links">
+          <a class="btn btn-primary" href="https://github.com/agentic-foundation-modeling-research/shop-gym" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-github" aria-hidden="true"></i><span>View on GitHub</span>
           </a>
         </div>
       </section>
+
+      <!-- ============================ CITE ============================ -->
+      <section id="cite" class="section">
+        <p class="tag">Citation</p>
+        <h2>Cite ShopGym</h2>
+        <div class="codeblock">
+          <div class="codeblock-head">
+            <span class="codeblock-title"><i class="fa-solid fa-quote-right" aria-hidden="true"></i> BibTeX</span>
+            <button class="copy-btn" data-copy-target="bibtex">
+              <i class="fa-regular fa-copy" aria-hidden="true"></i><span>Copy</span>
+            </button>
+          </div>
+          <pre id="bibtex"><code>@misc{savadikar2026shopgym,
+    title         = {ShopGym: An Integrated Framework for Realistic Simulation and Scalable Benchmarking of E-Commerce Web Agents},
+    author        = {Chinmay Savadikar and Mingyu Zhao and Yuanzheng Zhu and Han Li and Shuang Xie and Alberto Castelo and Tianfu Wu and Lingyun Wang},
+    year          = {2026},
+    eprint        = {2605.16116},
+    archivePrefix = {arXiv},
+    primaryClass  = {cs.AI},
+    url           = {https://arxiv.org/abs/2605.16116}
+}</code></pre>
+        </div>
+      </section>
     </main>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <span class="brand-mark" aria-hidden="true">S</span>
+          <span>ShopGym</span>
+        </div>
+        <p class="footer-affil">Shopify &nbsp;·&nbsp; North Carolina State University &nbsp;·&nbsp; 2026</p>
+        <div class="footer-links">
+          <a href="https://arxiv.org/abs/2605.16116" target="_blank" rel="noopener noreferrer" aria-label="arXiv"><i class="ai ai-arxiv" aria-hidden="true"></i></a>
+          <a href="https://github.com/agentic-foundation-modeling-research/shop-gym" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" hidden>
+      <button class="lightbox-close" aria-label="Close image">&times;</button>
+      <img src="" alt="" />
+    </div>
+
+    <script src="script.js" defer></script>
   </body>
 </html>
