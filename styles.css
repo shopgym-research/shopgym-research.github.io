@@ -173,16 +173,9 @@ main {
   width: 100%;
   background: var(--bg-alt);
   border-top: 1px solid var(--line);
-}
-
-.section-alt > * {
-  width: min(var(--maxw), calc(100% - 40px));
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.section-alt {
-  padding: 76px 0;
+  /* Full-bleed tinted band; horizontal padding centers the content column
+     so children flow left-aligned, identical to the non-alt .section. */
+  padding: 76px max(20px, calc((100% - var(--maxw)) / 2));
 }
 
 .tag {
@@ -1055,7 +1048,8 @@ pre code {
   }
   .section,
   .section-alt {
-    padding: 52px 0;
+    padding-top: 52px;
+    padding-bottom: 52px;
   }
   .cards.three,
   .cards.three.shops,
