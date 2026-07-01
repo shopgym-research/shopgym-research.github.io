@@ -425,6 +425,36 @@ figcaption {
   font-weight: 500;
 }
 
+/* "Living benchmark" growth pill (stats band + shops) */
+.growth-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  padding: 8px 15px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.growth-note i {
+  color: var(--accent);
+  font-size: 0.85em;
+}
+
+.stats-note {
+  width: min(var(--maxw), calc(100% - 40px));
+  margin: 16px auto 0;
+  text-align: center;
+}
+
+.shops-note {
+  margin-top: 20px;
+}
+
 /* ============================ CARDS ============================ */
 .cards {
   display: grid;
