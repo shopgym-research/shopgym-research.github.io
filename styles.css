@@ -492,6 +492,15 @@ figcaption {
   font-size: 0.96rem;
 }
 
+.future-work-card {
+  background: var(--accent-soft);
+  border-color: #c7e6df;
+}
+
+.future-work-list {
+  margin-top: 28px;
+}
+
 .card-icon {
   font-size: 1.3rem;
   color: var(--accent);
