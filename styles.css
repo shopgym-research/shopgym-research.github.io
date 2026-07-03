@@ -495,6 +495,33 @@ figcaption {
 .future-work-card {
   background: var(--accent-soft);
   border-color: #c7e6df;
+  border-left: 4px solid var(--accent);
+  padding: 22px;
+}
+
+.future-work-card h3 {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 1.02rem;
+  line-height: 1.35;
+}
+
+.future-work-card h3 span {
+  display: inline-grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid #c7e6df;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--accent-strong);
+  font-size: 0.95rem;
+}
+
+.future-work-card p {
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .future-work-list {
