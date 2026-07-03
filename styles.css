@@ -553,7 +553,9 @@ figcaption {
 }
 
 .shops-note {
-  margin-top: 20px;
+  display: flex;
+  width: fit-content;
+  margin: 20px auto 0;
 }
 
 /* ============================ CARDS ============================ */
