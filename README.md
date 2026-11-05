@@ -10,6 +10,7 @@ GitHub Pages.
 - `styles.css` — modern light theme.
 - `script.js` — copy-to-clipboard, mobile nav, active-section highlighting, figure lightbox.
 - `assets/` — figures and screenshots extracted from the paper PDF plus the repo's pipeline diagram.
+- `assets/shopgym-intro.mp4` - narrated intro video shown in the hero, with `shopgym-intro-poster.jpg` as its poster.
 
 Code: <https://github.com/agentic-foundation-modeling-research/shop-gym>
 

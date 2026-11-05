@@ -474,6 +474,16 @@ sup {
   box-shadow: var(--shadow);
 }
 
+.hero-figure video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #0b1220;
+  box-shadow: var(--shadow);
+}
+
 figure {
   margin: 0;
 }
